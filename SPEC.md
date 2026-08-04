@@ -170,25 +170,14 @@ Envelope `v` is the protocol version. 0.x revisions may break; from 1.0, additiv
 ## Appendix A: a minimal scene
 
 ```
-director: verb.summon {castId:"billy", stageId:"desktop", door:"rain-door"}
+director: verb.summon {castId:"guide", stageId:"desktop", door:"rain-door"}
 manager:  consent.requested -> host approves (MCP tool approval)
 manager:  actor.state {stage:"desktop", pose:"enter"}
-director: verb.cross {toStageId:"page-hirebilly"}
+director: verb.cross {toStageId:"page-demo"}
 manager:  (checks both transforms fresh; schedules matched handoff)
 stages:   exit fade / entry spawn, same frame, same screen point
-director: verb.point {target:{role:"button", name:"Ask Billy"}, style:"both"}
+director: verb.point {target:{role:"button", name:"Get Started"}, style:"both"}
 stage:    target.resolved {bbox, strategy:"a11y", confidence:0.93}
 stage:    target.outcome {clickedWithinMs: 2400, taskCompleted: true}
 ```
 
-## Appendix B: reference implementation map (hire-billy, Aug 2026)
-
-| Spec concept | Implementation |
-|---|---|
-| Stage Manager | serve.js stage-manager channel (SSE/WebSocket) |
-| Desktop overlay Stage | transparent always-on-top overlay; window geometry from OS; ledge anchor from measured palm line |
-| Web-page Stage | hire-billy stage page; door position self-reported at 1 Hz (the heartbeat rule generalizes this) |
-| cross | the desktop-to-page crossing with same-frame fade/spawn |
-| summon consent | MCP summon tool call approval in the host |
-| Cast metrics | sprite palm-line and seat calibration (the 99px figure-space measurement) |
-| Not yet implemented | extension-tab Stage (the "stagehand"), point/traverse against arbitrary tabs, outcome ledger |

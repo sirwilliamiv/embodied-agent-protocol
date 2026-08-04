@@ -30,10 +30,6 @@ schemas/           JSON Schemas for every message
 
 EAP is a companion to the Model Context Protocol, not a fork of it. MCP (spec 2026-07-28) carries tools and context; the MCP Apps extension (2026-01-26) renders UI *inside* the chat pane. EAP is the layer for UI *outside* the pane: characters on the desktop and in pages, crossing between them. The EAP verbs bind naturally as MCP tools (section 6.8 of the spec), which makes any MCP client a potential Director, and makes summoning a consented tool call.
 
-## Reference implementation
-
-The [hire-billy](https://github.com/sirwilliamiv/hire-billy) project implements a Stage Manager (serve.js), a desktop-overlay Stage, a web-page Stage with door heartbeat, the summon and cross verbs, and a cast with measured sprite metrics. SPEC.md Appendix B maps the implementation to the protocol.
-
 ## Status and license
 
 Draft 0.1: seeking a second independent implementation before 0.2. Spec text intended for CC BY 4.0, schemas MIT, so that anyone can implement without asking. Every copy of this idea should be an implementation of this spec.

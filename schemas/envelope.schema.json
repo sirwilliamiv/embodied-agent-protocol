@@ -42,8 +42,26 @@
       }
     },
     "type": {
-      "type": "string",
-      "pattern": "^(stage\\.(hello|transform|bye)|actor\\.state|verb\\.(summon|cross|point|traverse|speak|retire)|target\\.(resolve|resolved|lost|outcome)|consent\\.(requested|granted|denied)|error)$"
+      "enum": [
+        "stage.hello",
+        "stage.transform",
+        "stage.bye",
+        "actor.state",
+        "verb.summon",
+        "verb.cross",
+        "verb.point",
+        "verb.traverse",
+        "verb.speak",
+        "verb.retire",
+        "target.resolve",
+        "target.resolved",
+        "target.lost",
+        "target.outcome",
+        "consent.requested",
+        "consent.granted",
+        "consent.denied",
+        "error"
+      ]
     },
     "payload": {
       "type": "object"
