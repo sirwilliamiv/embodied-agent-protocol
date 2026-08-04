@@ -1,6 +1,6 @@
-# Stagecraft 0.1 Conformance
+# EAP 0.1 Conformance
 
-Claim conformance per role. Wording: "Stagecraft 0.1 <Role> (<kind>), capabilities: <list>".
+Claim conformance per role. Wording: "EAP 0.1 <Role> (<kind>), capabilities: <list>".
 
 ## Stage Manager
 

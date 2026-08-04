@@ -1,6 +1,6 @@
-# Contributing to Stagecraft
+# Contributing to the Embodied Agent Protocol
 
-Stagecraft is a draft protocol. The most valuable contribution right now is
+EAP is a draft protocol. The most valuable contribution right now is
 an independent implementation and the issues it surfaces.
 
 - **Implementers:** build any role (Stage, Stage Manager, Director, Cast) and

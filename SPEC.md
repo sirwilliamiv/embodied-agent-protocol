@@ -1,4 +1,4 @@
-# Stagecraft Protocol Specification
+# Embodied Agent Protocol (EAP) Specification
 
 **Version 0.1-draft · August 2026**
 
@@ -163,7 +163,7 @@ A cast (cast.schema.json) packages: sprite sheets with measured metrics (frame s
 
 ## 13. Versioning and conformance
 
-Envelope `v` is the protocol version. 0.x revisions may break; from 1.0, additive only. Conformance is per role, defined in CONFORMANCE.md. An implementation claims, e.g., "Stagecraft 0.1 Stage (web-page), capabilities: geometry, spotlight."
+Envelope `v` is the protocol version. 0.x revisions may break; from 1.0, additive only. Conformance is per role, defined in CONFORMANCE.md. An implementation claims, e.g., "EAP 0.1 Stage (web-page), capabilities: geometry, spotlight."
 
 ---
 

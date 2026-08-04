@@ -1,46 +1,147 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://stagecraft.dev/schemas/0.1/descriptor.schema.json",
+  "$id": "https://github.com/sirwilliamiv/embodied-agent-protocol/schemas/0.1/descriptor.schema.json",
   "title": "Target descriptor, resolution, and outcome",
   "$defs": {
     "descriptor": {
       "type": "object",
-      "anyOf": [{ "required": ["role", "name"] }, { "required": ["textNear"] }, { "required": ["selector"] }],
+      "anyOf": [
+        {
+          "required": [
+            "role",
+            "name"
+          ]
+        },
+        {
+          "required": [
+            "textNear"
+          ]
+        },
+        {
+          "required": [
+            "selector"
+          ]
+        }
+      ],
       "properties": {
-        "role": { "type": "string", "description": "ARIA/AX role" },
-        "name": { "type": "string", "description": "Accessible name" },
-        "textNear": { "type": "string" },
-        "landmark": { "type": "string" },
-        "selector": { "type": "string", "description": "Last resort only" },
-        "tabId": { "type": "string" },
+        "role": {
+          "type": "string",
+          "description": "ARIA/AX role"
+        },
+        "name": {
+          "type": "string",
+          "description": "Accessible name"
+        },
+        "textNear": {
+          "type": "string"
+        },
+        "landmark": {
+          "type": "string"
+        },
+        "selector": {
+          "type": "string",
+          "description": "Last resort only"
+        },
+        "tabId": {
+          "type": "string"
+        },
         "bboxHint": {
-          "type": ["object", "null"],
-          "properties": { "x": {"type":"number"}, "y": {"type":"number"}, "w": {"type":"number"}, "h": {"type":"number"} }
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "w": {
+              "type": "number"
+            },
+            "h": {
+              "type": "number"
+            }
+          }
         }
       }
     },
     "resolved": {
       "type": "object",
-      "required": ["requestId", "bbox", "strategy", "confidence"],
+      "required": [
+        "requestId",
+        "bbox",
+        "strategy",
+        "confidence"
+      ],
       "properties": {
-        "requestId": { "type": "string" },
+        "requestId": {
+          "type": "string"
+        },
         "bbox": {
           "type": "object",
-          "required": ["x", "y", "w", "h"],
-          "properties": { "x": {"type":"number"}, "y": {"type":"number"}, "w": {"type":"number"}, "h": {"type":"number"} }
+          "required": [
+            "x",
+            "y",
+            "w",
+            "h"
+          ],
+          "properties": {
+            "x": {
+              "type": "number"
+            },
+            "y": {
+              "type": "number"
+            },
+            "w": {
+              "type": "number"
+            },
+            "h": {
+              "type": "number"
+            }
+          }
         },
-        "strategy": { "enum": ["a11y", "text", "landmark", "selector", "vision"] },
-        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+        "strategy": {
+          "enum": [
+            "a11y",
+            "text",
+            "landmark",
+            "selector",
+            "vision"
+          ]
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        }
       }
     },
     "outcome": {
       "type": "object",
-      "required": ["requestId"],
+      "required": [
+        "requestId"
+      ],
       "properties": {
-        "requestId": { "type": "string" },
-        "userClickedWithinMs": { "type": ["integer", "null"] },
-        "taskCompleted": { "type": ["boolean", "null"] },
-        "appVersionHint": { "type": "string" }
+        "requestId": {
+          "type": "string"
+        },
+        "userClickedWithinMs": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "taskCompleted": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "appVersionHint": {
+          "type": "string"
+        }
       }
     }
   }

@@ -1,50 +1,120 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://stagecraft.dev/schemas/0.1/cast.schema.json",
+  "$id": "https://github.com/sirwilliamiv/embodied-agent-protocol/schemas/0.1/cast.schema.json",
   "title": "Cast manifest (a packaged character)",
   "type": "object",
-  "required": ["id", "name", "sprites", "grounding"],
+  "required": [
+    "id",
+    "name",
+    "sprites",
+    "grounding"
+  ],
   "properties": {
-    "id": { "type": "string" },
-    "name": { "type": "string" },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
     "sprites": {
       "type": "object",
-      "required": ["sheetUrl", "frameW", "frameH", "metrics", "anims"],
+      "required": [
+        "sheetUrl",
+        "frameW",
+        "frameH",
+        "metrics",
+        "anims"
+      ],
       "properties": {
-        "sheetUrl": { "type": "string" },
-        "frameW": { "type": "integer" }, "frameH": { "type": "integer" },
+        "sheetUrl": {
+          "type": "string"
+        },
+        "frameW": {
+          "type": "integer"
+        },
+        "frameH": {
+          "type": "integer"
+        },
         "metrics": {
           "type": "object",
-          "required": ["footY", "scale"],
+          "required": [
+            "footY",
+            "scale"
+          ],
           "properties": {
-            "footY": { "type": "number", "description": "Baseline the actor stands on, figure space" },
-            "palmLineY": { "type": "number", "description": "Where hands rest when seated, figure space" },
-            "seatY": { "type": "number" },
-            "scale": { "type": "number" }
+            "footY": {
+              "type": "number",
+              "description": "Baseline the actor stands on, figure space"
+            },
+            "palmLineY": {
+              "type": "number",
+              "description": "Where hands rest when seated, figure space"
+            },
+            "seatY": {
+              "type": "number"
+            },
+            "scale": {
+              "type": "number"
+            }
           }
         },
         "anims": {
           "type": "object",
-          "required": ["walk", "idle", "point"],
+          "required": [
+            "walk",
+            "idle",
+            "point"
+          ],
           "additionalProperties": {
             "type": "object",
-            "required": ["row", "frames", "fps"],
-            "properties": { "row": {"type":"integer"}, "frames": {"type":"integer"}, "fps": {"type":"number"} }
+            "required": [
+              "row",
+              "frames",
+              "fps"
+            ],
+            "properties": {
+              "row": {
+                "type": "integer"
+              },
+              "frames": {
+                "type": "integer"
+              },
+              "fps": {
+                "type": "number"
+              }
+            }
           }
         }
       }
     },
     "grounding": {
       "type": "object",
-      "required": ["endpoint"],
+      "required": [
+        "endpoint"
+      ],
       "properties": {
-        "endpoint": { "type": "string", "description": "Where speak() answers come from; no free-running voice" },
-        "styleRules": { "type": "array", "items": { "type": "string" } }
+        "endpoint": {
+          "type": "string",
+          "description": "Where speak() answers come from; no free-running voice"
+        },
+        "styleRules": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
       }
     },
     "dressing": {
       "type": "object",
-      "properties": { "stageTheme": { "type": "string" }, "doorStyle": { "type": "string" } }
+      "properties": {
+        "stageTheme": {
+          "type": "string"
+        },
+        "doorStyle": {
+          "type": "string"
+        }
+      }
     }
   }
 }

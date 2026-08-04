@@ -1,16 +1,16 @@
-# Stagecraft
+# Embodied Agent Protocol (EAP)
 
 **An open protocol for embodied agents.** Draft 0.1, August 2026.
 
-*(Working name. The protocol does not care what it is called; rename freely before publishing.)*
+*MCP gives an agent context. EAP gives it a body.*
 
-Agents can already act. What they cannot do is be **seen deciding**: attention, intention, and confidence all live in scrolling text. Stagecraft gives an agent a body on the user's screen: a character that is summoned by consent, walks across real surfaces (the OS desktop, a web page, a browser tab), points at real UI elements, and hands off between surfaces with pixel agreement, so one continuous character can cross from the operating system into a website.
+Agents can already act. What they cannot do is be **seen deciding**: attention, intention, and confidence all live in scrolling text. EAP gives an agent a body on the user's screen: a character that is summoned by consent, walks across real surfaces (the OS desktop, a web page, a browser tab), points at real UI elements, and hands off between surfaces with pixel agreement, so one continuous character can cross from the operating system into a website.
 
 The body is not decoration. It is a consent surface: a body telegraphs intent at human speed, before anything happens, in a form a person can veto by reflex.
 
 ## The one rule that defines the protocol
 
-**The actor never clicks.** An embodied agent under Stagecraft points, walks, speaks, and waits. The human acts. Actuation is not a missing feature; its absence is the trust model, and it is normative (see SPEC.md section 8).
+**The actor never clicks.** An embodied agent under EAP points, walks, speaks, and waits. The human acts. Actuation is not a missing feature; its absence is the trust model, and it is normative (see SPEC.md section 8).
 
 ## What is in this repo
 
@@ -28,7 +28,7 @@ schemas/           JSON Schemas for every message
 
 ## How it relates to MCP
 
-Stagecraft is a companion to the Model Context Protocol, not a fork of it. MCP (spec 2026-07-28) carries tools and context; the MCP Apps extension (2026-01-26) renders UI *inside* the chat pane. Stagecraft is the layer for UI *outside* the pane: characters on the desktop and in pages, crossing between them. The Stagecraft verbs bind naturally as MCP tools (section 6.8 of the spec), which makes any MCP client a potential Director, and makes summoning a consented tool call.
+EAP is a companion to the Model Context Protocol, not a fork of it. MCP (spec 2026-07-28) carries tools and context; the MCP Apps extension (2026-01-26) renders UI *inside* the chat pane. EAP is the layer for UI *outside* the pane: characters on the desktop and in pages, crossing between them. The EAP verbs bind naturally as MCP tools (section 6.8 of the spec), which makes any MCP client a potential Director, and makes summoning a consented tool call.
 
 ## Reference implementation
 
