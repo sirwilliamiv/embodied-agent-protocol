@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stagecraft.dev/schemas/0.1/verbs.schema.json",
+  "title": "The six Stagecraft verbs (payloads)",
+  "$defs": {
+    "summon": {
+      "type": "object",
+      "required": ["castId", "stageId"],
+      "properties": {
+        "castId": { "type": "string" },
+        "stageId": { "type": "string" },
+        "door": { "type": "string" }
+      }
+    },
+    "cross": {
+      "type": "object",
+      "required": ["toStageId"],
+      "properties": {
+        "toStageId": { "type": "string" },
+        "exitDoor": { "type": "string" },
+        "entryDoor": { "type": "string" }
+      }
+    },
+    "point": {
+      "type": "object",
+      "required": ["target"],
+      "properties": {
+        "target": { "$ref": "descriptor.schema.json#/$defs/descriptor" },
+        "style": { "enum": ["stand", "spotlight", "both"], "default": "both" },
+        "dwellMs": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "traverse": {
+      "type": "object",
+      "properties": {
+        "targets": { "type": "array", "items": { "$ref": "descriptor.schema.json#/$defs/descriptor" } },
+        "mode": { "enum": ["headings", "landmarks", "custom"] },
+        "dwellMs": { "type": "integer" }
+      }
+    },
+    "speak": {
+      "type": "object",
+      "required": ["text"],
+      "properties": {
+        "text": { "type": "string", "maxLength": 600 },
+        "receipts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["quote"],
+            "properties": {
+              "quote": { "type": "string" },
+              "sourceUrl": { "type": "string", "format": "uri" }
+            }
+          }
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "retire": {
+      "type": "object",
+      "properties": {
+        "via": { "enum": ["door", "fade"], "default": "door" },
+        "exitToStageId": { "type": "string", "description": "Cross here first, then exit (the close-button-walks-home behavior)" }
+      }
+    }
+  }
+}

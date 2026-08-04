@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stagecraft.dev/schemas/0.1/envelope.schema.json",
+  "title": "Stagecraft message envelope",
+  "type": "object",
+  "required": ["v", "id", "ts", "from", "type", "payload"],
+  "properties": {
+    "v": { "const": "0.1" },
+    "id": { "type": "string", "format": "uuid" },
+    "ts": { "type": "integer", "description": "Unix ms" },
+    "from": {
+      "type": "object",
+      "required": ["role"],
+      "properties": {
+        "role": { "enum": ["director", "stage", "manager"] },
+        "stageId": { "type": "string" }
+      }
+    },
+    "type": {
+      "type": "string",
+      "pattern": "^(stage\\.(hello|transform|bye)|actor\\.state|verb\\.(summon|cross|point|traverse|speak|retire)|target\\.(resolve|resolved|lost|outcome)|consent\\.(requested|granted|denied)|error)$"
+    },
+    "payload": { "type": "object" }
+  }
+}

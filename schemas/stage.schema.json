@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://stagecraft.dev/schemas/0.1/stage.schema.json",
+  "title": "Stage registration and transform",
+  "$defs": {
+    "transform": {
+      "type": "object",
+      "required": ["originX", "originY", "dpr", "viewportW", "viewportH", "ts"],
+      "properties": {
+        "originX": { "type": "number", "description": "Screen-space x of the stage's local origin, device-independent px" },
+        "originY": { "type": "number" },
+        "dpr": { "type": "number", "exclusiveMinimum": 0 },
+        "viewportW": { "type": "number" },
+        "viewportH": { "type": "number" },
+        "chromeOffsetY": { "type": "number", "description": "Browser chrome height for web-page stages" },
+        "displayId": { "type": "string" },
+        "ts": { "type": "integer" }
+      }
+    },
+    "door": {
+      "type": "object",
+      "required": ["name", "x", "y"],
+      "properties": {
+        "name": { "type": "string" },
+        "x": { "type": "number" }, "y": { "type": "number" },
+        "facing": { "enum": ["left", "right"] }
+      }
+    }
+  },
+  "oneOf": [
+    {
+      "title": "stage.hello payload",
+      "type": "object",
+      "required": ["stageId", "kind", "capabilities", "transform"],
+      "properties": {
+        "stageId": { "type": "string" },
+        "kind": { "enum": ["desktop-overlay", "web-page", "extension-tab"] },
+        "capabilities": {
+          "type": "object",
+          "properties": {
+            "geometry": { "type": "boolean" },
+            "scroll": { "type": "boolean" },
+            "spotlight": { "type": "boolean" },
+            "a11yTree": { "type": "boolean" },
+            "video": { "type": "boolean" }
+          }
+        },
+        "transform": { "$ref": "#/$defs/transform" },
+        "doors": { "type": "array", "items": { "$ref": "#/$defs/door" } }
+      }
+    },
+    {
+      "title": "stage.transform payload",
+      "type": "object",
+      "required": ["stageId", "transform"],
+      "properties": {
+        "stageId": { "type": "string" },
+        "transform": { "$ref": "#/$defs/transform" },
+        "doors": { "type": "array", "items": { "$ref": "#/$defs/door" } }
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "stagecraft-spec",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Stagecraft: an open protocol for embodied agents. Schemas and validation tooling.",
+  "type": "module",
+  "scripts": { "test": "node tools/validate.js" },
+  "devDependencies": { "ajv": "^8.17.0", "ajv-formats": "^3.0.1" }
+}
